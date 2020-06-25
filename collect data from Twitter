@@ -1,0 +1,15 @@
+token <- create_token(app = "", 
+                      consumer_key = "",
+                      consumer_secret = "",
+                      access_token = "",
+                      access_secret = "",
+                      set_renv = TRUE)
+Data_hpv1 <- search_tweets("Gardasil", n =18000, include_rts = TRUE, lang = "en", retryonratelimit = TRUE)
+Data_hpv2 <- search_tweets("Cervarix", n =18000, include_rts = TRUE, lang = "en", retryonratelimit = TRUE)
+Data_hpv3 <- search_tweets("HPV vaccine", n =18000, include_rts = TRUE, lang = "en", retryonratelimit = TRUE)
+Data_hpv4 <- search_tweets("cervarix vaccine", n =18000, include_rts = TRUE, lang = "en", retryonratelimit = TRUE)
+
+write_as_csv(Data_hpv1, "gardasil0324.csv", prepend=TRUE,na="",fileEncoding = "UTF-8")
+write_as_csv(Data_hpv2, "cervarix0324.csv", prepend=TRUE,na="",fileEncoding = "UTF-8")
+write_as_csv(Data_hpv3, "hpvvaccine0324.csv", prepend=TRUE,na="",fileEncoding = "UTF-8")
+write_as_csv(Data_hpv4, "cervarixvaccine0324.csv", prepend=TRUE,na="",fileEncoding = "UTF-8")
